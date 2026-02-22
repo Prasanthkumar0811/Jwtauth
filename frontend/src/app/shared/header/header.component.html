@@ -1,0 +1,69 @@
+<div class="card shadow-sm mb-4 p-4">
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+
+    <!-- LEFT -->
+    <div>
+      <h2 class="fw-semibold mb-1">
+        Welcome back, {{ loggedInUserName }}
+      </h2>
+      <p class="text-muted mb-0">Dashboard</p>
+    </div>
+
+    <!-- RIGHT -->
+  <!-- RIGHT -->
+<div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+
+  @if (showsearch) {
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        placeholder="Search"
+        (input)="onSearch($event)"
+      />
+    </mat-form-field>
+  }
+
+  <!-- ✅ EXPORT BUTTON -->
+  @if (showexport) {
+    <button
+      mat-raised-button
+      class="export-btn"
+      style="background-color: green;color: white;"
+      (click)="onExport()">
+      <mat-icon>download</mat-icon>
+      Export
+    </button>
+  }
+
+  @if (showcreate) {
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="createuser()">
+      + Create User
+    </button>
+  }
+
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+</div>
+
+  </div>
+</div>
+
+<mat-menu #profileMenu="matMenu">
+  <div class="px-3 py-2 fw-semibold">
+    Signed in as <br />
+    <span class="fw-bold">{{ loggedInUserName }}</span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</mat-menu>

@@ -1,0 +1,80 @@
+<div class="drawer-header">
+  <h2 class="drawer-title">User Details</h2>
+
+  <button
+    mat-icon-button
+    class="close-btn"
+    (click)="closeDrawer()"
+    aria-label="Close"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="drawer-content">
+
+  <div class="detail-row">
+    <span class="label">Name</span>
+    <span class="value">{{ user?.name || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Email</span>
+    <span class="value">{{ user?.email || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Phone</span>
+    <span class="value">{{ user?.phone || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Alternate Phone</span>
+    <span class="value">{{ user?.altphone || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Alternate Email</span>
+    <span class="value">{{ user?.altemail || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Address</span>
+    <span class="value">{{ user?.address || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">State</span>
+    <span class="value">{{ user?.state || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">City</span>
+    <span class="value">{{ user?.city || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Pincode</span>
+    <span class="value">{{ user?.pincode || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Bank Name</span>
+    <span class="value">{{ user?.bankname || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">Account Holder</span>
+    <span class="value">{{ user?.accountHolder || '-' }}</span>
+  </div>
+
+  <div class="detail-row">
+    <span class="label">IFSC Code</span>
+    <span class="value">{{ user?.ifscCode || '-' }}</span>
+  </div>
+   <div class="detail-row">
+    <span class="label">Username</span>
+    <span class="value">{{ user?.username || '-' }}</span>
+  </div>
+
+</div>

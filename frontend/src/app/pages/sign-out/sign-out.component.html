@@ -1,0 +1,39 @@
+<div class="flex flex-col flex-auto items-center justify-center min-h-screen">
+  <div class="w-full sm:w-auto py-8 px-6 sm:p-12 sm:rounded-2xl sm:shadow sm:bg-card">
+    <div class="w-full max-w-80 mx-auto text-center">
+
+      <!-- TITLE -->
+      <div class="text-3xl font-extrabold tracking-tight">
+        You have signed out!
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="mt-2 font-medium">
+        @if (countdown > 0) {
+<ng-container >
+          Redirecting in {{ countdown | i18nPlural: countdownMapping }}
+        </ng-container>
+        }
+        
+        @if (countdown === 0) {
+<ng-container >
+          Redirecting now...
+        </ng-container>
+        }
+
+        
+      </div>
+
+      <!-- MANUAL LINK -->
+      <div class="mt-6 text-md text-secondary">
+        <span>Go to</span>
+        <a
+          class="ml-1 text-primary-500 hover:underline"
+          routerLink="/login">
+          Login
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

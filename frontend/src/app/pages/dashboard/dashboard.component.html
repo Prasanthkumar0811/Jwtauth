@@ -1,0 +1,160 @@
+<mat-drawer-container class="drawer-container">
+
+  <!-- RIGHT DRAWER -->
+  <mat-drawer
+    #matDrawer
+    position="end"
+    mode="over"
+    [disableClose]="true"
+    class="drawer"
+  >
+    <router-outlet></router-outlet>
+  </mat-drawer>
+
+<div class="page-wrapper">
+
+  <!-- HEADER CARD -->
+  <app-header
+    [showcreate]="true"
+    [showsearch]="true"
+    [showexport]="true"
+    (searchange)="onSearchChange($event)"
+    (exportClick)="exportDataToExcel()"
+  ></app-header>
+  <!-- PROFILE MENU -->
+  <mat-menu #profileMenu="matMenu">
+    <div class="px-3 py-2 fw-semibold">
+      Signed in as <br />
+      <span class="fw-bold">{{ loggedInUserName }}</span>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- <button mat-menu-item routerLink="/updatepwd">
+      <mat-icon>lock_reset</mat-icon>
+      Reset Password
+    </button> -->
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+  <!-- LOADER -->
+  @if (loading) {
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+  <!-- TABLE CARD -->
+    <div class="card shadow-sm p-3" [hidden]="loading">
+
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="w-100 table-hover"
+      >
+
+        <!-- NAME -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+        </ng-container>
+
+        <!-- EMAIL -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+        </ng-container>
+
+        <!-- PHONE -->
+         <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+          <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+        </ng-container>
+        <ng-container matColumnDef="bankname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>BankName</th>
+          <td mat-cell *matCellDef="let user">{{ user.bankname }}</td>
+        </ng-container>
+        <ng-container matColumnDef="accountholder">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>AccountHolder</th>
+          <td mat-cell *matCellDef="let user">{{ user.accountHolder }}</td>
+        </ng-container>
+        <!-- STATE -->
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+          <td mat-cell *matCellDef="let user">{{ user.state }}</td>
+        </ng-container>
+
+        <!-- CITY -->
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+          <td mat-cell *matCellDef="let user">{{ user.city }}</td>
+        </ng-container>
+        <ng-container matColumnDef="qr-code">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Qr code</th>
+          <td mat-cell *matCellDef="let user">
+                  <button
+  mat-icon-button
+  color="accent"
+  title="Generate QR"
+  (click)="generateQr(user,$event)">
+  <mat-icon>qr_code</mat-icon>
+</button>
+          </td>
+         
+
+        </ng-container>
+
+        <!-- ACTIONS -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let user">
+
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="edituser(user._id)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            <button
+                mat-icon-button
+                color="warn"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [routerLink]="[row._id]",
+          [state]="{user:row}"
+        ></tr>
+
+      </table>
+
+      <!-- PAGINATOR -->
+      <div class="d-flex justify-content-end mt-3">
+        <mat-paginator
+          [pageSizeOptions]="[5,10,20]"
+          [pageSize]="5"
+          showFirstLastButtons>
+        </mat-paginator>
+      </div>
+
+    </div>
+  
+
+</div>
+
+</mat-drawer-container>

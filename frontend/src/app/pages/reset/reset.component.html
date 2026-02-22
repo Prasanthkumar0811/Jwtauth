@@ -1,0 +1,55 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+
+    <h3 class="text-center mb-4">Reset Password</h3>
+
+    <form [formGroup]="resetForm" (ngSubmit)="submit()">
+
+      <!-- New Password -->
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>New Password</mat-label>
+        <input matInput type="password" formControlName="newPassword">
+
+        @if (resetForm.get('newPassword')?.hasError('required')) {
+          <mat-error>Password is required</mat-error>
+        }
+
+        @if (resetForm.get('newPassword')?.hasError('minlength')) {
+          <mat-error>Password must be at least 8 characters</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Confirm Password -->
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+
+        @if (resetForm.get('confirmPassword')?.hasError('required')) {
+          <mat-error>Confirm Password is required</mat-error>
+        }
+
+        @if (resetForm.get('confirmPassword')?.hasError('passwordMismatch')) {
+          <mat-error>Passwords do not match</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="w-100"
+        type="submit"
+        [disabled]="resetForm.invalid">
+        Reset Password
+      </button>
+
+      <!-- Backend Message -->
+      @if (backendMessage) {
+        <div class="alert alert-info mt-3 text-center">
+          {{ backendMessage }}
+        </div>
+      }
+
+    </form>
+  </div>
+</div>

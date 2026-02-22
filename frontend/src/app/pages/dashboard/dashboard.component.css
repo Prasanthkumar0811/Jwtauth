@@ -1,0 +1,53 @@
+.snack-success {
+  background: #2e7d32 !important;
+  color: #fff !important;
+}
+
+.snack-error {
+  background: #c62828 !important;
+  color: #fff !important;
+}
+.page-wrapper {
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+}
+.drawer {
+  width: 520px;          /* ✅ desktop */
+  max-width: 90vw;       /* ✅ mobile safety */
+}
+
+/* Search */
+
+
+/* Table */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th.mat-header-cell {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+tr.mat-row:hover {
+    background-color: rgba(0,0,0,0.04);
+    cursor: pointer;
+}
+.search-field {
+  border-radius: 8px;
+}
+
+
+/* Loader */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}

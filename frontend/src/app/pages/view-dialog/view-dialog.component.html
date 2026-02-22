@@ -1,0 +1,28 @@
+<div class="dialog-header">
+  <h2 class="dialog-title">User Details</h2>
+
+  <button
+    mat-icon-button
+    class="close-btn"
+    (click)="close()"
+    aria-label="Close dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+
+  <div><strong>Name:</strong> {{ user.name || '' }}</div>
+  <div><strong>Email:</strong> {{ user.email || '' }}</div>
+  <div><strong>Phone:</strong> {{ user.phone || '' }}</div>
+  <div><strong>Alternate Phone:</strong> {{ user.altphone || '-' }}</div>
+  <div><strong>Alternate Email:</strong> {{ user.altemail || '-' }}</div>
+  <div><strong>Address:</strong> {{ user.address || '-' }}</div>
+  <div><strong>State:</strong> {{ user.state || '-' }}</div>
+  <div><strong>City:</strong> {{ user.city || '-' }}</div>
+  <div><strong>Pincode:</strong> {{ user.pincode || '-' }}</div>
+  <div><strong>Bank name:</strong> {{ user.bankname || '-' }}</div>
+  <div><strong>Account Holder:</strong> {{ user.accountHolder || '-' }}</div>
+  <div><strong>IFSC code:</strong> {{ user.ifscCode || '-' }}</div>
+
+</mat-dialog-content>

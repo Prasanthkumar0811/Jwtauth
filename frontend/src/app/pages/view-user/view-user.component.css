@@ -1,0 +1,52 @@
+.drawer-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.drawer-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-btn {
+  margin-left: auto;
+}
+.drawer-content {
+  padding: 16px 20px;
+}
+
+/* Each row */
+.detail-row {
+  display: grid;
+  grid-template-columns: 160px 1fr; /* FIXED label width */
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+/* Label column */
+.label {
+  font-weight: 600;
+  color: #374151;
+  position: relative;
+}
+
+/* Add ":" automatically */
+.label::after {
+  content: " :";
+}
+
+/* Value column */
+.value {
+  color: #111827;
+  word-break: break-word;
+}

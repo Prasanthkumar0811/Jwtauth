@@ -1,0 +1,51 @@
+.search-field {
+  width: 260px;
+  height: 70px;
+}
+
+/* Remove Material underline & background */
+.search-field .mat-mdc-text-field-wrapper {
+  height: 20px;
+  border-radius: 999px;
+  background: #fff;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px #d0d5dd;
+}
+
+/* Kill underline */
+.search-field .mdc-line-ripple {
+  display: none;
+}
+
+/* Center content */
+.search-field .mat-mdc-form-field-flex {
+  height: 40px;
+  align-items: center;
+}
+
+/* Remove extra spacing */
+.search-field .mat-mdc-form-field-infix {
+  padding: 0 !important;
+  min-height: unset !important;
+}
+
+/* Input */
+.search-field input.mat-mdc-input-element {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  padding: 0 6px;
+}
+
+/* Icon */
+.search-field mat-icon {
+  font-size: 18px;
+  color: #9aa0a6;
+}
+
+/* Focus state (clean, no jump) */
+.search-field.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: inset 0 0 0 2px #2563eb;
+}

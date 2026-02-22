@@ -1,0 +1,63 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+    
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+
+        @if (loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched) {
+          <div class="text-danger small">Email is required</div>
+        }
+
+        @if (loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched) {
+          <div class="text-danger small">Invalid email format</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+
+        @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+          <div class="text-danger small">Password is required</div>
+        }
+
+        @if (loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched) {
+          <div class="text-danger small">
+            Password must be at least 8 characters
+          </div>
+        }
+      </div>
+
+      <button
+        class="btn btn-primary w-100"
+        type="submit"
+        [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <div class="text-center mt-3">
+        <a routerLink="/forgotpass">Forgot password?</a>
+      </div>
+
+      @if (backendError) {
+        <div class="alert alert-danger mt-3 text-center">
+          {{ backendError }}
+        </div>
+      }
+
+    </form>
+  </div>
+</div>
