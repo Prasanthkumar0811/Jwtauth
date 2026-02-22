@@ -44,7 +44,7 @@ jwtauth/
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/jwtauth.git
+git clone https://github.com/Prasanthkumar0811/Jwtauth.git
 ```
 
 ---
